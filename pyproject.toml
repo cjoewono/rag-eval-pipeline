@@ -1,0 +1,49 @@
+[project]
+name = "rag-eval-pipeline"
+version = "0.1.0"
+description = "AI-Automated RAG Evaluation Pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # RAG & LLM
+    "langchain>=0.1.0",
+    "llama-index>=0.10.0",
+    "anthropic>=0.19.0",
+    "openai>=1.12.0",
+    
+    # Vector DBs
+    "chromadb>=0.4.22",
+    "qdrant-client>=1.7.0",
+    
+    # Evaluation
+    "deepeval>=0.21.0",
+    
+    # API & Config
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "pydantic-settings>=2.1.0",
+    "python-dotenv>=1.0.1",
+    
+    # Observability
+    "structlog>=24.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.2.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+    "bandit>=1.7.7",
+    "detect-secrets>=1.4.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
